@@ -1,5 +1,5 @@
-// AquaPlaner Service Worker: zuerst Netz, offline aus dem Speicher
-const C="aquaplaner-v2";
+// TerraPlaner Service Worker: zuerst Netz, offline aus dem Speicher
+const C="terraplaner-v3";
 const CORE=["./","index.html","i18n.json","manifest.json","icon-192.png","icon-512.png","datenschutz.html","impressum.html"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()))});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
